@@ -1,0 +1,33 @@
+.input-error{
+  border-color:red
+}
+
+.input-error-message{
+  bottom:8px;
+  left:5px;
+  color:red;
+  font-size:.7em;
+  animation: errorfade .5s ease-in
+}
+.nom-trash{
+  transition: transform .3s ease-in;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  width:32px;
+  height:32px;
+  transform: scale(1.3);
+  cursor:pointer;
+  color:red;
+}
+.nom-trash:hover{
+  transform: scale(1.5)
+}
+@keyframes errorfade {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}

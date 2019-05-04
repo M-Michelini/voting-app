@@ -1,0 +1,22 @@
+#create-link{
+  width:100%;
+  order:-1;
+}
+#paginator-btn-panel{
+  width:100%;
+  justify-content: space-between;
+}
+.page-description{
+  font-size: .8em;
+  opacity: .9;
+}
+@media (min-width: 426px) {
+  #create-link{
+    width:auto;
+    order:1;
+  }
+  #paginator-btn-panel{
+    width:auto;
+    justify-content: space-between;
+  }
+}

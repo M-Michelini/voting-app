@@ -1,0 +1,42 @@
+#main{
+  width:100%;
+  overflow-x: hidden;
+  min-height:calc(100vh - 100px);
+  position:relative;
+  padding-bottom:64px;
+}
+.dropdown-item.active{
+  background-color:#008000;
+}
+
+.dropdown-item:active{
+  background-color:#008000;
+}
+
+.btn-primary{
+  background-color:#008000 !important;
+  border-color:#008000 !important;
+}
+.btn-primary:hover{
+  background-color:#007000  !important;
+}
+.btn-primary:focus,.page-link:focus{
+  box-shadow: none !important;
+}
+.btn-primary:active{
+  background-color:#009000 !important;
+}
+
+.page-item.active .page-link{
+  background-color:#009000 !important;
+  color:white !important;
+}
+
+.page-item .page-link{
+  color:#009000 !important;
+}
+@media (min-width: 426px) {
+  #main{
+    min-height:calc(100vh - 64px);
+  }
+}
