@@ -7,8 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "start": "node index.js",
-    "test": "mocha"
+      "start": "node index.js",
+      "test": "mocha",
+      "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
   },
   "author": "Michael Michelini",
   "license": "MIT",
@@ -28,5 +29,8 @@
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "mocha": "^6.1.4"
+  },
+  "engines": {
+    "node": "10.15.0"
   }
 }
