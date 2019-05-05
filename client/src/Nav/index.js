@@ -5,13 +5,14 @@ import TwitterLogin from 'react-twitter-auth';
 import './index.css';
 
 const NavAuth = ({
-  handleLogin
+  handleLogin,
+  loginFailure
 }) => (
   <TwitterLogin
     requestTokenUrl="https://mmichelini-voting-app.herokuapp.com/api/auth/twitter/request_token"
     loginUrl="https://mmichelini-voting-app.herokuapp.com/api/auth/twitter/verification"
     onSuccess={handleLogin}
-    onFailure={()=>{}}
+    onFailure={loginFailure}
     className="btn btn-less-light twitter-auth"
     text='Sign in'
   />
