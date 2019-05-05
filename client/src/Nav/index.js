@@ -8,8 +8,8 @@ const NavAuth = ({
   handleLogin
 }) => (
   <TwitterLogin
-    requestTokenUrl="http://localhost:3001/api/auth/twitter/request_token"
-    loginUrl="http://localhost:3001/api/auth/twitter/verification"
+    requestTokenUrl="https://mmichelini-voting-app.herokuapp.com/api/auth/twitter/request_token"
+    loginUrl="https://mmichelini-voting-app.herokuapp.com/api/auth/twitter/verification"
     onSuccess={handleLogin}
     onFailure={()=>{}}
     className="btn btn-less-light twitter-auth"
