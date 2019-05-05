@@ -16,7 +16,7 @@ const pollAttrs = {
   title:{
     required:"Your poll needs a title.",
     minlength:"The title of a poll should be atleast 5 characters.",
-    maxlength:"The title of a poll should be at most 50 characters."
+    maxlength:"The title of a poll should be at most 75 characters."
   },
   nominations:{
     title:{

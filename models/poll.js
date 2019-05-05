@@ -23,7 +23,7 @@ const poll = new mongoose.Schema({
     type: String,
     required: true,
     minlength:5,
-    maxlength:50,
+    maxlength:75,
     validate:{validator:v=>/[a-z0-9\s]/.test(v),msg:'No special characters or punctuation.',kind:'maxlength'},
   },
   twitterProfile: {
