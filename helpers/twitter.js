@@ -19,7 +19,6 @@ const requestTwitterToken = (req, res) => {
   request.post({
     url: 'https://api.twitter.com/oauth/request_token',
     oauth: {
-      oauth_callback: "http://localhost:3000",
       consumer_key: process.env.TWITTER_CONSUMER_KEY,
       consumer_secret: process.env.TWITTER_CONSUMER_SECRET
     }

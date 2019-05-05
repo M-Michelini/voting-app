@@ -20,8 +20,9 @@ mongoose.connect(process.env.MONGO_URI,{
   useFindAndModify: false,
   keepAlive:true
 });
-
-app.use(express.static(path.join(__dirname, "client", "build")))
+if(process.env.NODE_ENV!=="dev"){
+  app.use(express.static(path.join(__dirname, "client", "build")))
+}
 app.use(bodyParser.json());
 app.use(cors())
 
@@ -30,12 +31,14 @@ app.use('/api/poll',pollRoutes);
 
 app.use(errors.createError);
 app.use(errors.errorHandler);
-app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
-});
 
-app.listen(process.env.PORT, function() {
-  console.log(`Server is starting on port ${process.env.PORT}`);
+if(process.env.NODE_ENV!=="dev"){
+  app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+  });
+}
+app.listen(PORT, function() {
+  console.log(`Server is starting on port ${PORT}`);
 });
 
 module.exports = app; //for mocha tests.
