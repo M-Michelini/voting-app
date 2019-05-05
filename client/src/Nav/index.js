@@ -1,7 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
 import TwitterLogin from 'react-twitter-auth';
-
 import './index.css';
 
 const NavAuth = ({
@@ -9,8 +8,8 @@ const NavAuth = ({
   loginFailure
 }) => (
   <TwitterLogin
-    requestTokenUrl="https://mmichelini-voting-app.herokuapp.com/api/auth/twitter/request_token"
-    loginUrl="https://mmichelini-voting-app.herokuapp.com/api/auth/twitter/verification"
+    requestTokenUrl="/api/auth/twitter/request_token"
+    loginUrl="/api/auth/twitter/verification"
     onSuccess={handleLogin}
     onFailure={loginFailure}
     className="btn btn-less-light twitter-auth"
