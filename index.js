@@ -20,7 +20,11 @@ mongoose.connect(process.env.MONGO_URI,{
   useFindAndModify: false,
   keepAlive:true
 });
+<<<<<<< HEAD
 if(process.env.NODE_ENV!=="development"){
+=======
+if(process.env.NODE_ENV!=="dev"){
+>>>>>>> 43d9f23925428f8181c3748d4f4505394d7e6473
   app.use(express.static(path.join(__dirname, "client", "build")))
 }
 app.use(bodyParser.json());
@@ -32,7 +36,11 @@ app.use('/api/poll',pollRoutes);
 app.use(errors.createError);
 app.use(errors.errorHandler);
 
+<<<<<<< HEAD
 if(process.env.NODE_ENV!=="development"){
+=======
+if(process.env.NODE_ENV!=="dev"){
+>>>>>>> 43d9f23925428f8181c3748d4f4505394d7e6473
   app.get("*", (req, res) => {
       res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
