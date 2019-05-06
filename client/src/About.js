@@ -3,7 +3,7 @@ import './About.css'
 
 
 const About = ({close}) => (
-  <div id="about-container" className="w-100 h-100 position-absolute d-flex justify-content-center">
+  <div id="about-container" className="w-100 h-100 position-fixed d-flex justify-content-center">
     <div id="about-opaque-background" className="w-100 h-100 position-absolute" onClick={close}/>
     <section id="about-panel">
       <i onClick={close} id='about-close' className="fa fa-times-circle"></i>
