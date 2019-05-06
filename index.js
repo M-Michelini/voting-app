@@ -20,6 +20,7 @@ mongoose.connect(process.env.MONGO_URI,{
   useFindAndModify: false,
   keepAlive:true
 });
+
 if(process.env.NODE_ENV!=="development"){
   app.use(express.static(path.join(__dirname, "client", "build")))
 }

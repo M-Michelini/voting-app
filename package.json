@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "An express backend server for a voting application.",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
   "scripts": {
     "start": "node index.js",
     "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
