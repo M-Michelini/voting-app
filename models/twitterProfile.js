@@ -5,11 +5,6 @@ const twitterProfile = new mongoose.Schema({
     type:String,
     required:true
   },
-  phoneVerified:{
-    type:Boolean,
-    required:true,
-    default:false
-  },
   image:{
     type:String,
     required:true
@@ -33,7 +28,6 @@ twitterProfile.statics.upsertTwitterUser = function(token, tokenSecret, profile,
       var newUser = new that({
           username: profile.username,
           image: profile._json.profile_image_url,
-          phoneVerified: !profile.needs_phone_verification,
           provider:{
             id:profile.id,
             token: token,

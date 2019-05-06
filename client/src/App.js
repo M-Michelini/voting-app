@@ -8,6 +8,7 @@ import Paginator from './Paginator';
 import PollForm from './PollForm';
 import Poll from './Poll'
 import Footer from './Footer'
+import About from './About'
 
 import './App.css';
 
@@ -17,6 +18,7 @@ class App extends Component{
     this.state = {
       currentUser:null,
       alert:null,
+      about:false,
       initing:localStorage.getItem('user')//if the user is logged in and needs to be fetched on refresh
     }
     this.handleLogout = this.handleLogout.bind(this);
@@ -39,6 +41,7 @@ class App extends Component{
       if(!user) throw Error('Something went wrong')
       this.setState({currentUser:user,initing:false})
     }).catch(e=>{
+      localStorage.removeItem('user');
       this.setState({initing:false})
     })
   }
@@ -64,10 +67,11 @@ class App extends Component{
     })
   }
   render(){
-    const {currentUser,alert,initing}=this.state;
+    const {currentUser,alert,about,initing}=this.state;
     if(initing) return <div/>
     return (
       <Router>
+        {!about?null:<About close={()=>{this.setState({about:false})}} />}
         <Nav
           currentUser={currentUser}
           handleLogin={this.handleLogin}
@@ -102,7 +106,7 @@ class App extends Component{
               />}
             />
           </Switch>
-          <Footer />
+          <Footer openAbout={()=>this.setState({about:true})} />
         </div>
       </Router>
     );

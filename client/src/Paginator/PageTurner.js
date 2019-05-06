@@ -22,9 +22,9 @@ const PageTurner = ({
       <ul className="pagination justify-content-center m-0">
         {numbers[0]<=0?null:
           <>
-            <li className="page-item">
+            {numbers[0]===1?null:<li className="page-item">
               <button onClick={()=>fetchPage({page:0})} className="page-link">{'<<'}</button>
-            </li>
+            </li>}
             <li className="page-item">
               <button onClick={()=>fetchPage({page:numbers[0]-1})} className="page-link">{'<'}</button>
             </li>
@@ -34,11 +34,11 @@ const PageTurner = ({
         {numbers[numbers.length-1]===totalPages-1?null:
           <>
             <li className="page-item">
-              <button onClick={()=>fetchPage(numbers[numbers.length-1]+1)} className="page-link">{'>'}</button>
+              <button onClick={()=>fetchPage({page:numbers[numbers.length-1]+1})} className="page-link">{'>'}</button>
             </li>
-            <li className="page-item">
-              <button onClick={()=>fetchPage(totalPages-1)} className="page-link">{'>>'}</button>
-            </li>
+            {numbers[numbers.length-1]===totalPages-2?null:<li className="page-item">
+              <button onClick={()=>fetchPage({page:totalPages-1})} className="page-link">{'>>'}</button>
+            </li>}
           </>
         }
       </ul>

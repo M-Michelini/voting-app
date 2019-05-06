@@ -1,0 +1,43 @@
+#about-container{
+  z-index:3;
+}
+#about-close{
+  margin-top:15px;
+  margin-right: -25px;
+  margin-bottom: -25px;
+  font-size:2em;
+  color:red;
+  align-self: flex-end;
+}
+#about-close:hover{
+  cursor:pointer;
+}
+
+#about-opaque-background{
+  opacity: .8;
+  background-color: black;
+}
+
+#about-panel{
+  position:relative;
+  display:flex;
+  flex-direction: column;
+  margin-top: 64px;
+  height:calc(100% - 128px);
+  width: 75%;
+  max-width:650px;
+  padding-left:40px;
+  padding-right:40px;
+  background-color:white;
+  border-radius: 10px;
+  opacity: 1;
+  z-index:2;
+  overflow-y:auto;
+}
+
+#about-container a{
+  color:rgb(173, 216, 230);
+}
+#about-container a:visited{
+  color:rgb(220, 50, 220);
+}

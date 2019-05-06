@@ -65,7 +65,7 @@ export default class Poll extends Component{
       error:null,
       usersVote:-1,
       finishDate:false,
-      fetching:false
+      fetching:true
     }
 
     this.fetchData = this.fetchData.bind(this);
@@ -94,12 +94,13 @@ export default class Poll extends Component{
     .then(data=>{
       if(!data) throw Error('Something went wrong')
       this.setState({
+        fetching:false,
         nominations:data.nominations,
         title:data.title,
         finishDate:data.finish_at
       })
     }).catch(e=>{
-      this.setState({error:true})
+      this.setState({fetching:false,error:true})
     })
   }
   castVote(nominationIndex){
@@ -119,25 +120,25 @@ export default class Poll extends Component{
     })
     .then(r=>r.ok ? r.json():null)
     .then(()=>{
-      this.setState({fetching:false})
       let newNominations = [...this.state.nominations];
       const nomToPull = newNominations.find(n=>n.index===this.state.usersVote);
       const nomToPush = newNominations.find(n=>n.index===nominationIndex);
       if(nomToPull) nomToPull.voters=nomToPull.voters.filter(id=>id!==this.props.currentUser._id);
       if(!pull) nomToPush.voters.push(this.props.currentUser._id)
       this.setState({
+        fetching:false,
         nominations:newNominations,
         usersVote:pull?-1:nominationIndex
       })
     }).catch(e=>{
       console.log(e)
-      this.setState({error:true,loading:false})
+      this.setState({error:true,fetching:false})
     })
   }
   render(){
-    const {title,nominations,error,usersVote,finishDate} = this.state;
+    const {title,nominations,error,usersVote,finishDate,fetching} = this.state;
     return(
-      !title ?
+      (fetching&&!title) ?
         <div>Loading</div>:
         error || !title ?
           <Redirect to="" />:

@@ -35,7 +35,6 @@ class PollForm extends Component{
       title:'',
       nominations:['',''],
       date:getHTMLDate(24*60*60*1000),
-      mobileCheck:false,
 
       done:false,
       loading:false,
@@ -49,7 +48,7 @@ class PollForm extends Component{
   }
 
   postPoll(){
-    const {date,nominations,title,mobileCheck} = this.state;
+    const {date,nominations,title} = this.state;
     const {currentUser,setAlert} = this.props;
     this.setState({loading:true})
     fetch(`/api/poll`,{
@@ -61,8 +60,7 @@ class PollForm extends Component{
       body:JSON.stringify({
         title:title,
         nominations:nominations,
-        finish_at:getUTCfromHTML(date),
-        require_mobile:mobileCheck
+        finish_at:getUTCfromHTML(date)
       })
     })
     .then(async r=>{
@@ -111,7 +109,7 @@ class PollForm extends Component{
     this.setState({nominations:this.state.nominations.filter((_,j)=>i!==j)})
   }
   render(){
-    const {loading,date,nominations,mobileCheck,title,done,errors} = this.state;
+    const {loading,date,nominations,title,done,errors} = this.state;
     const {currentUser} = this.props;
     if(!currentUser) return <Redirect to="" />;
     if(done) return <Redirect to={done} />
@@ -147,12 +145,6 @@ class PollForm extends Component{
             this.setState({nominations:noms})
           }
         }/>
-        <div className="form-check mt-4 mb-3">
-          <input checked={mobileCheck} onChange={()=>this.setState({mobileCheck:!mobileCheck})} className="form-check-input" type="checkbox" id="mobile-valition-check"/>
-          <label className="form-check-label" htmlFor="mobile-valition-check">
-            Mobile validated
-          </label>
-        </div>
         <button type="submit" className="btn btn-secondary btn-block">Submit</button>
       </form>
     )

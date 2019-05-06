@@ -1,0 +1,29 @@
+#footer{
+  font-size:3em;
+  background-color:green;
+  height:64px;
+  position:absolute;
+  bottom:0;
+}
+.footer-link{
+  color:white;
+  text-decoration: none;
+  cursor:pointer;
+  border:none;
+  outline:none;
+  background-color: inherit;
+}
+.footer-link:hover{
+  color:gray;
+  text-decoration: none;
+  background-color: inherit;
+}
+.footer-link:focus{
+  outline:none;
+}
+@media only screen and (max-width: 768px) {
+  #footer{
+    font-size:3em;
+    justify-content: center;
+  }
+}

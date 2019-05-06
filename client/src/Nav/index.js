@@ -40,17 +40,18 @@ const NavUser = ({
 const Nav = ({
   currentUser,
   handleLogin,
-  handleLogout
+  handleLogout,
+  setAlert
 }) => (
   <div id="nav">
-    <Link id="nav-header" to=''><h1>ReactVote</h1></Link>
+    <Link id="nav-header" className="ml-3" to=''><h1>ReactVote</h1></Link>
     {
       currentUser ?
         <NavUser handleLogout={handleLogout} {...currentUser}/>:
         <NavAuth
           handleLogin={handleLogin}
           loginFailure={()=>{
-            this.props.setAlert('Login failed!')
+            setAlert('Login failed!')
           }}
         />
     }

@@ -3,15 +3,16 @@ import React from 'react';
 const sortTypes = [
   ['voters','Votes (Asc.)'],
   ['voters-desc','Votes (Desc.)'],
-  ['created_at','Date (Asc.)'],
-  ['created_at-desc','Date (Desc.)'],
+  ['created_at','Start date (Asc.)'],
+  ['created_at-desc','Start date (Desc.)'],
+  ['finish_at','Finish date (Asc.)'],
+  ['finish_at-desc','Finish date (Desc.)'],
   ['title','Title (Asc.)'],
   ['title-desc','Title (Desc.)'],
 ]
 const filterTypes = [
   ['active','Active'],
   ['complete','Complete'],
-  ['mobile','Mobile Validated'],
   ['users','My Polls']
 ]
 const DropDown = ({
